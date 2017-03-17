@@ -84,8 +84,7 @@ class bacula::director (
 
   create_resources(bacula::messages, $messages)
 
-  Bacula::Director::Pool <<||>> { conf_dir => $conf_dir }
-  Bacula::Director::Storage <<| tag == "bacula-${storage}" |>> { conf_dir => $conf_dir }
+  Bacula::Director::Storage <<| tag == "bacula-${director}" |>> { conf_dir => $conf_dir }
   Bacula::Director::Client <<| tag == "bacula-${director}" |>> { conf_dir => $conf_dir }
 
   if !empty($job_tag) {

@@ -42,12 +42,14 @@ define bacula::director::pool (
   $purgeaction    = 'Truncate',
   $conf_dir       = $bacula::params::conf_dir, # Overridden at realize
   $next_pool      = undef,
+  $director       = $bacula::params::director
 ) {
 
   include bacula::params
 
-  concat::fragment { "bacula-director-pool-${name}":
+  @@concat::fragment { "bacula-pool-${name}":
     target  => "${conf_dir}/conf.d/pools.conf",
-    content => template('bacula/bacula-dir-pool.erb');
+    content => template('bacula/bacula-dir-pool.erb'),
+    tag     => "bacula-${director}",
   }
 }
