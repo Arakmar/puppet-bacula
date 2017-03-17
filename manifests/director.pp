@@ -53,6 +53,9 @@ class bacula::director (
 
   file { "${conf_dir}/conf.d":
     ensure => directory,
+    purge => true,
+    recurse => true,
+    force => true,
   }
 
   file { "${conf_dir}/bconsole.conf":
