@@ -65,7 +65,7 @@ define bacula::job (
   $restoredir          = '/tmp/bacula-restores',
   $sched               = false,
   $priority            = false,
-  $job_tag             = $bacula::params::job_tag,
+  $director            = $bacula::params::director,
   $selection_type      = undef,
   $selection_pattern   = undef,
 ) {
@@ -98,6 +98,6 @@ define bacula::job (
 
   @@bacula::director::job { $name:
     content => template($template),
-    tag     => $real_tags,
+    tag     => "bacula-${director}",
   }
 }
