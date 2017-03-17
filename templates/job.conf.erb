@@ -2,7 +2,9 @@ Job {
     Name             = <%= @name %>
     Type             = <%= @jobtype %>
     Client           = <%= @clientcert %>-fd
+<% if @fileset -%>
     FileSet          = <%= @fileset_real %>
+<% end -%>
 <% if @pool -%>
     Pool             = <%= @pool %>
 <% end -%>

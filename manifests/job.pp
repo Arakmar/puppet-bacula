@@ -47,7 +47,7 @@ define bacula::job (
   Array $files         = [],
   Array $excludes      = [],
   $jobtype             = 'Backup',
-  $fileset             = true,
+  $fileset             = undef,
   $template            = 'bacula/job.conf.erb',
   $pool                = $bacula::client::default_pool,
   $pool_full           = $bacula::client::default_pool_full,
@@ -87,13 +87,7 @@ define bacula::job (
       excludes => $excludes
       }
   } else {
-    $fileset_real = 'Common'
-  }
-
-  if empty($job_tag) {
-    $real_tags = "bacula-${::bacula::params::director}"
-  } else {
-    $real_tags = ["bacula-${::bacula::params::director}", $job_tag]
+    $fileset_real = undef
   }
 
   @@bacula::director::job { $name:
