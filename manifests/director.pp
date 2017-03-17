@@ -130,7 +130,7 @@ class bacula::director (
 
   bacula::job { 'RestoreFiles':
     jobtype  => 'Restore',
-    fileset  => false,
+    fileset  => 'Common',
     jobdef   => false,
     messages => 'Standard',
   }
