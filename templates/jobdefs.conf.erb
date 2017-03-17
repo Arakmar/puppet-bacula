@@ -10,4 +10,26 @@ JobDefs {
     Level    = <%= @level %>
 <% end -%>
 <%= scope.function_template(['bacula/_job_reschedule.erb']) -%>
+<% @runscript.each do |script| -%>
+    RunScript {
+      RunsWhen = <%= script.fetch('runs_when') %>
+      FailJobOnError = <%= (script['fail_job_on_error'] != false) ? 'yes' : 'no' %>
+      RunsOnSuccess = <%= (script['runs_on_success'] != false) ? 'yes' : 'no' %>
+      RunsOnFailure = <%= script['runs_on_failure'] ? 'yes' : 'no' %>
+      RunsOnClient = <%= script['runs_on_client'] ? 'yes' : 'no' %>
+      Command = <%= script.fetch('command').inspect %>
+    }
+<% end -%>
+<% if @allow_duplicate_jobs -%>
+    Allow Duplicate Jobs = <%= @allow_duplicate_jobs %>
+<% end -%>
+<% if @cancel_queued_duplicates -%>
+    Cancel Queued Duplicates = <%= @cancel_queued_duplicates %>
+<% end -%>
+<% if @rerun_failed_levels -%>
+    Rerun Failed Levels = <%= @rerun_failed_levels %>
+<% end -%>
+<% if @max_full_interval -%>
+    Max Full Interval = <%= @max_full_interval %>
+<% end -%>
 }
