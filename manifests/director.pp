@@ -77,13 +77,13 @@ class bacula::director (
 
   concat::fragment { 'bacula-director-header':
     order   => '00',
-    target  => "${conf_dir}/bacula-dir.conf",
+    target  => "${conf_dir}/bareos-dir.conf",
     content => template('bacula/bacula-dir-header.erb')
   }
 
   concat::fragment { 'bacula-director-tail':
     order   => '99999',
-    target  => "${conf_dir}/bacula-dir.conf",
+    target  => "${conf_dir}/bareos-dir.conf",
     content => template('bacula/bacula-dir-tail.erb')
   }
 
@@ -103,7 +103,7 @@ class bacula::director (
 
   Concat::Fragment <<| tag == "bacula-${director}" |>>
 
-  concat { "${conf_dir}/bacula-dir.conf":
+  concat { "${conf_dir}/bareos-dir.conf":
     show_diff => false,
   }
 

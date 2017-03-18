@@ -56,7 +56,7 @@ class bacula::client (
   bacula::messages { 'Standard-fd':
     daemon   => 'fd',
     director => "${director}-dir = all, !skipped, !restored",
-    append   => '"/var/log/bacula/bacula-fd.log" = all, !skipped',
+    append   => '"/var/log/bareos/bareos-fd.log" = all, !skipped',
   }
 
   # Tell the director about this client config

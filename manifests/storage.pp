@@ -38,12 +38,12 @@ class bacula::storage (
 
   concat::fragment { 'bacula-storage-header':
     order   => 00,
-    target  => "${conf_dir}/bacula-sd.conf",
+    target  => "${conf_dir}/bareos-sd.conf",
     content => template('bacula/bacula-sd-header.erb'),
   }
 
   concat::fragment { 'bacula-storage-dir':
-    target  => "${conf_dir}/bacula-sd.conf",
+    target  => "${conf_dir}/bareos-sd.conf",
     content => template('bacula/bacula-sd-dir.erb'),
   }
 
@@ -51,14 +51,14 @@ class bacula::storage (
     daemon   => 'sd',
     director => "${director}-dir = all",
     syslog   => 'all, !skipped',
-    append   => '"/var/log/bacula/bacula-sd.log" = all, !skipped',
+    append   => '"/var/log/bareos/bareos-sd.log" = all, !skipped',
   }
 
   # Realize the clause the director is exporting here so we can allow access to
   # the storage daemon Adds an entry to ${conf_dir}/bacula-sd.conf
   Concat::Fragment <<| tag == "bacula-storage-dir-${director}" |>>
 
-  concat { "${conf_dir}/bacula-sd.conf":
+  concat { "${conf_dir}/bareos-sd.conf":
     owner     => 'root',
     group     => $group,
     mode      => '0640',
