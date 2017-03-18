@@ -33,14 +33,18 @@ class bacula::director (
   $storage             = $bacula::params::storage,
   $group               = $bacula::params::bacula_group,
   $job_tag             = $bacula::params::job_tag,
+  $manage_client       = true,
   $messages,
 ) inherits bacula::params {
 
   include bacula::common
-  include bacula::client
   include bacula::ssl
   include bacula::director::defaults
   include bacula::virtual
+
+  if ($manage_client) {
+    include bacula::client
+  }
 
   realize(Package[$packages])
 
