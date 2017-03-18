@@ -39,13 +39,12 @@ class bacula::director (
 
   include bacula::common
   include bacula::director::defaults
-  include bacula::virtual
 
   if ($manage_client) {
     include bacula::client
   }
 
-  realize(Package[$packages])
+  ensure_packages($packages)
 
   service { $services:
     ensure    => running,

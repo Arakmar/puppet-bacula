@@ -30,9 +30,7 @@ class bacula::client (
 
   include bacula::common
 
-  package { $packages:
-    ensure => present,
-  }
+  ensure_packages($packages)
 
   service { $services:
     ensure    => running,

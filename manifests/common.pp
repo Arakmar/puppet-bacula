@@ -16,7 +16,7 @@ class bacula::common (
 
   include bacula::ssl
 
-  ensure_package($packages)
+  ensure_packages($packages)
 
   file { $conf_dir:
     ensure  => 'directory',
