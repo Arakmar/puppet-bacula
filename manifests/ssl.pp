@@ -7,7 +7,7 @@ class bacula::ssl (
   $certfile   = $bacula::params::certfile,
   $keyfile    = $bacula::params::keyfile,
   $cafile     = $bacula::params::cafile,
-  $packages   = $bacula::params::bacula_client_packages,
+  $packages   = $bacula::params::bacula_common_packages,
   $user       = $bacula::params::bacula_user,
   $conf_user  = $bacula::params::bacula_user,
   $conf_group = $bacula::params::bacula_group,
@@ -21,19 +21,13 @@ class bacula::ssl (
 
   File {
     owner   => $user,
-    group   => '0',
+    group   => $group,
     mode    => '0640',
-    require => Package[$packages],
   }
-
-  file { $conf_dir:
-    ensure => 'directory',
-    owner  => $conf_user,
-    group  => $conf_group,
-  } ->
 
   file { "${conf_dir}/ssl":
     ensure => 'directory',
+    require => File[$conf_dir]
   }
 
   file { $certfile:

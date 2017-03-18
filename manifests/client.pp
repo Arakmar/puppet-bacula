@@ -29,7 +29,6 @@ class bacula::client (
 ) inherits bacula::params {
 
   include bacula::common
-  include bacula::ssl
 
   package { $packages:
     ensure => present,

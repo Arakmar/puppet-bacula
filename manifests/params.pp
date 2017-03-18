@@ -27,6 +27,7 @@ class bacula::params {
 
   case $facts['operatingsystem'] {
     'Ubuntu','Debian': {
+      $bacula_common_packages   = [ 'bareos-common' ]
       $bacula_director_packages = [ 'bareos-director', "bareos-database-${db_type}", 'bareos-bconsole' ]
       $bacula_director_services = [ 'bareos-director' ]
       $bacula_storage_packages  = [ 'bareos-storage' ]
@@ -42,6 +43,7 @@ class bacula::params {
       $bacula_group             = $bacula_user
     }
     'SLES': {
+      $bacula_common_packages   = [ 'bareos-common' ]
       $bacula_director_packages = [ 'bareos-director', "bareos-database-${db_type}", 'bareos-bconsole' ]
       $bacula_director_services = [ 'bareos-director' ]
       $bacula_storage_packages  = [ 'bareos-storage' ]
@@ -57,6 +59,7 @@ class bacula::params {
       $bacula_group             = $bacula_user
     }
     'RedHat','CentOS','Fedora','Scientific': {
+      $bacula_common_packages   = [ 'bareos-common' ]
       $bacula_director_packages = [ 'bareos-director', "bareos-database-${db_type}", 'bareos-bconsole' ]
       $bacula_director_services = [ 'bareos-director' ]
       $bacula_storage_packages  = [ 'bareos-storage' ]

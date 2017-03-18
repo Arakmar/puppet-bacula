@@ -38,7 +38,6 @@ class bacula::director (
 ) inherits bacula::params {
 
   include bacula::common
-  include bacula::ssl
   include bacula::director::defaults
   include bacula::virtual
 

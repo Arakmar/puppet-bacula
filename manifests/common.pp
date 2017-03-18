@@ -2,19 +2,28 @@
 #
 # == Description
 #
-# This class configures and installs the bacula client packages and enables
+# This class configures and installs the bacula common packages and enables
 # the service, so that bacula jobs can be run on the client including this
 # manifest.
 #
 class bacula::common (
   $homedir      = $bacula::params::homedir,
   $homedir_mode = '0770',
-  $packages     = $bacula::params::bacula_client_packages,
+  $packages     = $bacula::params::bacula_common_packages,
   $user         = $bacula::params::bacula_user,
   $group        = $bacula::params::bacula_group,
 ) inherits bacula::params {
 
   include bacula::ssl
+
+  ensure_package($packages)
+
+  file { $conf_dir:
+    ensure  => 'directory',
+    owner   => $user,
+    group   => $group,
+    require => Package[$packages],
+  }
 
   file { $homedir:
     ensure  => directory,
