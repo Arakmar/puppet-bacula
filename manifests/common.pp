@@ -16,14 +16,18 @@ class bacula::common (
 
   include bacula::ssl
 
-  ensure_packages($packages)
+  ensure_packages($packages, {'tag' => 'bareos'})
 
   file { $conf_dir:
     ensure  => 'directory',
     owner   => $user,
     group   => $group,
-    require => Package[$packages],
+    purge   => true,
+    force   => true,
+    recurse => true,
   }
+
+  Package <| tag == 'bareos' |> -> File[$conf_dir]
 
   file { $homedir:
     ensure  => directory,

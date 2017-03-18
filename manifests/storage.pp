@@ -27,7 +27,7 @@ class bacula::storage (
   include bacula::common
   include bacula::ssl
 
-  ensure_packages($packages)
+  ensure_packages($packages, {'tag' => 'bareos'})
 
   service { $services:
     ensure    => running,

@@ -44,7 +44,7 @@ class bacula::director (
     include bacula::client
   }
 
-  ensure_packages($packages)
+  ensure_packages($packages, {'tag' => 'bareos'})
 
   service { $services:
     ensure    => running,
