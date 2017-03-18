@@ -74,6 +74,22 @@ class bacula::params {
       $bacula_user              = 'bareos'
       $bacula_group             = $bacula_user
     }
+    'Archlinux': {
+      $bacula_common_packages   = [ 'bareos-common' ]
+      $bacula_director_packages = [ 'bareos-director', "bareos-database-${db_type}", 'bareos-bconsole' ]
+      $bacula_director_services = [ 'bareos-director' ]
+      $bacula_storage_packages  = [ 'bareos-storage' ]
+      $bacula_storage_services  = [ 'bareos-storage' ]
+      $bacula_client_packages   = 'bareos-filedaemon'
+      $bacula_client_services   = 'bareos-filedaemon'
+      $conf_dir                 = '/etc/bareos'
+      $bacula_dir               = '/etc/bareos/ssl'
+      $client_config            = '/etc/bareos/bareos-fd.conf'
+      $homedir                  = '/var/lib/bareos'
+      $rundir                   = '/var/run'
+      $bacula_user              = 'bareos'
+      $bacula_group             = $bacula_user
+    }
     default: { fail("bacula::params has no love for ${facts['operatingsystem']}") }
   }
 
