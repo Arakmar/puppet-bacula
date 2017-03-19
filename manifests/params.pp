@@ -14,12 +14,6 @@ class bacula::params {
 
   validate_bool($ssl)
 
-  if $facts['operatingsystem'] in ['RedHat', 'CentOS', 'Fedora', 'Scientific'] {
-    $db_type        = hiera('bacula::params::db_type', 'postgresql')
-  } else {
-    $db_type        = hiera('bacula::params::db_type', 'pgsql')
-  }
-
   $storage          = hiera('bacula::params::storage', $::fqdn)
   $director         = hiera('bacula::params::director', $::fqdn)
   $director_address = hiera('bacula::params::director_address', $director)
@@ -28,7 +22,7 @@ class bacula::params {
   case $facts['operatingsystem'] {
     'Ubuntu','Debian': {
       $bacula_common_packages   = [ 'bareos-common' ]
-      $bacula_director_packages = [ 'bareos-director', "bareos-database-${db_type}", 'bareos-bconsole' ]
+      $bacula_director_packages = [ 'bareos-director', 'bareos-bconsole' ]
       $bacula_director_services = [ 'bareos-director' ]
       $bacula_storage_packages  = [ 'bareos-storage' ]
       $bacula_storage_services  = [ 'bareos-storage' ]
@@ -44,7 +38,7 @@ class bacula::params {
     }
     'SLES': {
       $bacula_common_packages   = [ 'bareos-common' ]
-      $bacula_director_packages = [ 'bareos-director', "bareos-database-${db_type}", 'bareos-bconsole' ]
+      $bacula_director_packages = [ 'bareos-director', 'bareos-bconsole' ]
       $bacula_director_services = [ 'bareos-director' ]
       $bacula_storage_packages  = [ 'bareos-storage' ]
       $bacula_storage_services  = [ 'bareos-storage' ]
@@ -60,7 +54,7 @@ class bacula::params {
     }
     'RedHat','CentOS','Fedora','Scientific': {
       $bacula_common_packages   = [ 'bareos-common' ]
-      $bacula_director_packages = [ 'bareos-director', "bareos-database-${db_type}", 'bareos-bconsole' ]
+      $bacula_director_packages = [ 'bareos-director', 'bareos-bconsole' ]
       $bacula_director_services = [ 'bareos-director' ]
       $bacula_storage_packages  = [ 'bareos-storage' ]
       $bacula_storage_services  = [ 'bareos-storage' ]
@@ -76,7 +70,7 @@ class bacula::params {
     }
     'Archlinux': {
       $bacula_common_packages   = [ 'bareos-common' ]
-      $bacula_director_packages = [ 'bareos-director', "bareos-database-${db_type}", 'bareos-bconsole' ]
+      $bacula_director_packages = [ 'bareos-director', 'bareos-bconsole' ]
       $bacula_director_services = [ 'bareos-director' ]
       $bacula_storage_packages  = [ 'bareos-storage' ]
       $bacula_storage_services  = [ 'bareos-storage' ]

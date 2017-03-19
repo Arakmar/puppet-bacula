@@ -45,6 +45,7 @@ class bacula::director (
   }
 
   ensure_packages($packages, {'tag' => 'bareos'})
+  ensure_packages(["bareos-database-${db_type}"], {'tag' => 'bareos'})
 
   service { $services:
     ensure    => running,
