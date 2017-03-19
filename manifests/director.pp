@@ -131,7 +131,7 @@ class bacula::director (
     files => ['/etc'],
   }
 
-  bacula::job { 'RestoreFiles':
+  bacula::job { "RestoreFiles-${director}":
     jobtype  => 'Restore',
     fileset  => 'PuppetDefault',
     jobdef   => false,
