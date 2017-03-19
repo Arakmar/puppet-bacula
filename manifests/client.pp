@@ -17,6 +17,8 @@ class bacula::client (
   $director            = $bacula::params::director,
   $storage             = $bacula::params::storage,
   $group               = $bacula::params::bacula_group,
+  $homedir             = $bacula::params::homedir,
+  $rundir              = $bacula::params::rundir,
   $client_config       = $bacula::params::client_config,
   $autoprune           = $bacula::params::autoprune,
   $file_retention      = $bacula::params::file_retention,
