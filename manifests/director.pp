@@ -105,7 +105,7 @@ class bacula::director (
   Concat::Fragment <<| tag == "bacula-${director}" |>>
 
   concat { "${conf_dir}/bareos-dir.conf":
-    show_diff => false,
+    show_diff => true,
   }
 
   $sub_confs = [
@@ -124,7 +124,7 @@ class bacula::director (
   concat { $sub_confs: }
 
   concat { $sub_confs_with_secrets:
-    show_diff => false,
+    show_diff => true,
   }
 
   bacula::fileset { 'Default':
