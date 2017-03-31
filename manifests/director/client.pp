@@ -1,6 +1,7 @@
 define bacula::director::client (
   $port           = '9102',
   $client         = $::fqdn,
+  $address        = $::fqdn,
   $password       = 'secret',
   $conf_dir       = $bacula::params::conf_dir, # Overridden at realize
   $file_retention = $bacula::params::file_retention,

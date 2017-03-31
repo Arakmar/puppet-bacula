@@ -24,6 +24,7 @@ class bacula::client (
   $file_retention      = $bacula::params::file_retention,
   $job_retention       = $bacula::params::job_retention,
   $client              = $::fqdn,
+  $address             = $::fqdn,
   $default_pool        = 'Default',
   $default_pool_full   = undef,
   $default_pool_inc    = undef,
@@ -65,6 +66,7 @@ class bacula::client (
   @@bacula::director::client { $client:
     port           => $port,
     client         => $client,
+    address        => $address,
     password       => $password,
     autoprune      => $autoprune,
     file_retention => $file_retention,
