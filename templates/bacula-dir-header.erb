@@ -5,7 +5,7 @@ Director {                # define myself
 <%= scope.function_template(['bacula/_listen.erb']) %>
     }
 <% end -%>
-    QueryFile               = "/etc/bacula/scripts/query.sql"
+    QueryFile               = "/usr/lib/bareos/scripts/query.sql"
     WorkingDirectory        = <%= @homedir %>
     Pid Directory           = <%= @rundir %>
     Maximum Concurrent Jobs = <%= @max_concurrent_jobs %>
