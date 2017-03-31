@@ -22,6 +22,12 @@ Messages {
 <% if @mail -%>
     Mail  = <%= @mail %>
 <% end -%>
+<% if @mail_on_error -%>
+    Mail On Error  = <%= @mail_on_error %>
+<% end -%>
+<% if @mail_on_success -%>
+    Mail On Success  = <%= @mail_on_success %>
+<% end -%>
 <% if @operator -%>
     Operator  = <%= @operator %>
 <% end -%>

@@ -3,17 +3,19 @@
 # Create a Messages resource on the $daemon (director, storage or file).
 #
 define bacula::messages (
-  $mname       = 'Standard',
-  $daemon      = 'dir',
-  $director    = undef,
-  $append      = undef,
-  $catalog     = undef,
-  $syslog      = undef,
-  $console     = undef,
-  $mail        = undef,
-  $operator    = undef,
-  $mailcmd     = undef,
-  $operatorcmd = undef,
+  $mname           = 'Standard',
+  $daemon          = 'dir',
+  $director        = undef,
+  $append          = undef,
+  $catalog         = undef,
+  $syslog          = undef,
+  $console         = undef,
+  $mail            = undef,
+  $mail_on_error   = undef,
+  $mail_on_success = undef,
+  $operator        = undef,
+  $mailcmd         = undef,
+  $operatorcmd     = undef,
 ) {
   validate_re($daemon, ['^dir', '^sd', '^fd'])
 
