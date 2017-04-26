@@ -59,6 +59,7 @@ class bacula::ssl (
     path    => '/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/bin:/usr/local/sbin',
     cwd     => "${conf_dir}/ssl",
     creates => "${conf_dir}/ssl/dh1024.pem",
+    timeout => 0,
     require => File["${conf_dir}/ssl"],
   }
 }
