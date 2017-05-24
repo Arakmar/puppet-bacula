@@ -114,11 +114,13 @@ class bacula::director (
     "${conf_dir}/conf.d/job.conf",
     "${conf_dir}/conf.d/jobdefs.conf",
     "${conf_dir}/conf.d/fileset.conf",
+    "${conf_dir}/conf.d/profile.conf",
   ]
 
   $sub_confs_with_secrets = [
     "${conf_dir}/conf.d/client.conf",
     "${conf_dir}/conf.d/storage.conf",
+    "${conf_dir}/conf.d/console.conf",
   ]
 
   concat { $sub_confs: }
