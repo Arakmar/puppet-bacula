@@ -17,6 +17,16 @@ Director {                # define myself
     TLS Verify Peer         = yes
     TLS DH File             = <%= @conf_dir %>/ssl/dh1024.pem
 <% end -%>
+
+<% if @fd_connect_timeout -%>
+    FD Connect Timeout = <%= @fd_connect_timeout %>
+<% end -%>
+<% if @heartbeat_interval -%>
+    Heartbeat Interval = <%= @heartbeat_interval %>
+<% end -%>
+<% if @sd_connect_timeout -%>
+    SD Connect Timeout = <%= @sd_connect_timeout %>
+<% end -%>
 }
 
 Pool {

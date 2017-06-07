@@ -34,7 +34,10 @@ class bacula::director (
   $group               = $bacula::params::bacula_group,
   $job_tag             = $bacula::params::job_tag,
   $manage_client       = true,
-  $messages,
+  $messages            = {},
+  $fd_connect_timeout  = undef,
+  $sd_connect_timeout  = undef,
+  $heartbeat_interval  = undef,
 ) inherits bacula::params {
 
   include bacula::common
