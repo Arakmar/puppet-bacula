@@ -24,6 +24,7 @@
 #     set to false to disable this option
 #   * priority - string containing the priority number for the job
 #     set to false to disable this option
+#   * write_bootstrap - Path where to write the bootstrap file
 #   * job_tag - string that might be used for grouping of jobs. Pass this to
 #     bacula::director to only collect jobs that match this tag.
 #
@@ -65,6 +66,7 @@ define bacula::job (
   $restoredir          = '/tmp/bacula-restores',
   $sched               = false,
   $priority            = false,
+  $write_bootstrap     = undef,
   $director            = $bacula::params::director,
   $selection_type      = undef,
   $selection_pattern   = undef,

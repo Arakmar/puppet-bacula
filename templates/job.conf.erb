@@ -61,6 +61,9 @@ Job {
 <% if @priority -%>
     Priority         = <%= @priority %>
 <% end -%>
+<% if @write_bootstrap -%>
+    Write Bootstrap = <%= @write_bootstrap %>
+<% end -%>
 <%= scope.function_template(['bacula/_job_reschedule.erb']) -%>
 }
 
