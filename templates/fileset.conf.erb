@@ -11,6 +11,9 @@ FileSet {
 <% [@files].flatten.each do |f| -%>
 <%=    "    File = #{f}" %>
 <% end -%>
+<% if @plugin -%>
+    Plugin  = "<%= @plugin %>"
+<% end -%>
   }
   Exclude {
 <%   [@excludes].flatten.reject { |x| x.empty? }.flatten.each do |exclude| -%>

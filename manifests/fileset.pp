@@ -6,6 +6,7 @@ define bacula::fileset (
   $files,
   $excludes                     = '',
   Hash[String, String] $options = {'signature' => 'SHA1', 'compression' => 'GZIP9'},
+  $plugin                       = undef,
   $conf_dir                     = $bacula::params::conf_dir, # Overridden at realize
   $director                     = $bacula::params::director,
 ) {
