@@ -23,6 +23,7 @@ class bacula::storage (
   $services                = $bacula::params::bacula_storage_services,
   $homedir                 = $bacula::params::homedir,
   $rundir                  = $bacula::params::rundir,
+  $plugindir               = $bacula::params::plugindir,
   $conf_dir                = $bacula::params::conf_dir,
   $director                = $bacula::params::director,
   $user                    = $bacula::params::bacula_user,

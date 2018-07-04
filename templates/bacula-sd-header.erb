@@ -2,6 +2,7 @@ Storage {
     Name                    = <%= @clientcert %>-sd
     WorkingDirectory        = <%= @homedir %>
     Pid Directory           = <%= @rundir %>
+    Plugin Directory        = <%= @plugindir %>
 <% if @listen_address -%>
     SDAddresses             = {
 <%= scope.function_template(['bacula/_listen.erb']) -%>

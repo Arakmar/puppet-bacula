@@ -33,6 +33,7 @@ class bacula::params {
       $client_config            = '/etc/bareos/bareos-fd.conf'
       $homedir                  = '/var/lib/bareos'
       $rundir                   = '/var/run/bareos'
+      $plugindir                = '/usr/lib/bareos/plugins'
       $bacula_user              = 'bareos'
       $bacula_group             = $bacula_user
     }
@@ -49,6 +50,7 @@ class bacula::params {
       $client_config            = '/etc/bareos/bareos-fd.conf'
       $homedir                  = '/var/lib/bareos'
       $rundir                   = '/var/run'
+      $plugindir                = '/usr/lib64/bareos/plugins'
       $bacula_user              = 'bareos'
       $bacula_group             = $bacula_user
     }
@@ -65,6 +67,7 @@ class bacula::params {
       $client_config            = '/etc/bareos/bareos-fd.conf'
       $homedir                  = '/var/lib/bareos'
       $rundir                   = '/var/run'
+      $plugindir                = '/usr/lib64/bareos/plugins'
       $bacula_user              = 'bareos'
       $bacula_group             = $bacula_user
     }
@@ -81,6 +84,7 @@ class bacula::params {
       $client_config            = '/etc/bareos/bareos-fd.conf'
       $homedir                  = '/var/lib/bareos'
       $rundir                   = '/var/run'
+      $plugindir                = '/usr/lib/bareos/plugins'
       $bacula_user              = 'bareos'
       $bacula_group             = $bacula_user
     }
