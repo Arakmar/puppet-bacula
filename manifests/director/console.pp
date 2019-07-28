@@ -1,6 +1,7 @@
 define bacula::director::console(
     $password,
     $profile,
+    $tls_enable = true,
     $conf_dir = $bacula::params::conf_dir,
 ) {
     concat::fragment { "bacula-director-console-${title}":

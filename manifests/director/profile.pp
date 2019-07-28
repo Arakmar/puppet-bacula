@@ -8,6 +8,7 @@ define bacula::director::profile(
     $client_acl = '*all*',
     $fileset_acl = '*all*',
     $where_acl = '*all*',
+    $plugin_options_acl = '*all*',
     $conf_dir = $bacula::params::conf_dir,
 ) {
     concat::fragment { "bacula-director-profile-${title}":
