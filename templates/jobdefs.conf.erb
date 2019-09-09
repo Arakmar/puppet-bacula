@@ -26,6 +26,12 @@ JobDefs {
 <% if @cancel_queued_duplicates -%>
     Cancel Queued Duplicates = <%= @cancel_queued_duplicates %>
 <% end -%>
+<% if @cancel_lower_level_duplicates -%>
+    Cancel Lower Level Duplicates = <%= @cancel_lower_level_duplicates %>
+<% end -%>
+<% if @cancel_running_duplicates -%>
+    Cancel Running Duplicates = <%= @cancel_running_duplicates %>
+<% end -%>
 <% if @rerun_failed_levels -%>
     Rerun Failed Levels = <%= @rerun_failed_levels %>
 <% end -%>

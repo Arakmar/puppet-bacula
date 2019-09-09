@@ -24,6 +24,8 @@ define bacula::jobdefs (
   Array $runscript     = [],
   $allow_duplicate_jobs = undef,
   $cancel_queued_duplicates = undef,
+  $cancel_lower_level_duplicates = undef,
+  $cancel_running_duplicates = undef,
   $rerun_failed_levels = undef,
   $max_full_interval = undef
 ) {
